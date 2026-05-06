@@ -1,0 +1,439 @@
+/* ============================================================
+   A Revolta de Canudos — Styles
+   ============================================================ */
+
+:root {
+  --background: oklch(0.96 0.02 80);
+  --foreground: oklch(0.22 0.04 40);
+  --card: oklch(0.98 0.015 80);
+  --card-foreground: oklch(0.22 0.04 40);
+  --primary: oklch(0.45 0.13 40);
+  --primary-foreground: oklch(0.97 0.02 80);
+  --secondary: oklch(0.9 0.04 75);
+  --secondary-foreground: oklch(0.28 0.06 40);
+  --muted: oklch(0.92 0.025 80);
+  --muted-foreground: oklch(0.45 0.05 50);
+  --accent: oklch(0.65 0.15 50);
+  --accent-foreground: oklch(0.98 0.015 80);
+  --destructive: oklch(0.5 0.2 30);
+  --destructive-foreground: oklch(0.98 0.015 80);
+  --border: oklch(0.85 0.04 70);
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+img { display: block; max-width: 100%; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv11";
+  line-height: 1.5;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 20% 30%, oklch(0.85 0.04 70 / 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, oklch(0.85 0.04 70 / 0.2) 0%, transparent 50%);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 92vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, oklch(0.22 0.04 40 / 0.2) 0%, oklch(0.22 0.04 40 / 0.85) 100%);
+}
+.hero__content {
+  position: relative;
+  z-index: 10;
+  max-width: 64rem;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 1.5rem 5rem;
+}
+.hero__kicker {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: oklch(0.96 0.02 80 / 0.8);
+}
+.hero__title {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1.05;
+  color: var(--background);
+  font-weight: 600;
+}
+.hero__title em {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--accent);
+}
+.hero__subtitle {
+  margin-top: 1.5rem;
+  max-width: 42rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.65;
+  color: oklch(0.96 0.02 80 / 0.9);
+}
+.hero__scroll {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: oklch(0.96 0.02 80 / 0.7);
+}
+.hero__scroll-line {
+  height: 1px;
+  width: 3rem;
+  background-color: var(--accent);
+}
+.hero__scroll-text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+@media (min-width: 640px) {
+  .hero__title { font-size: 4.5rem; }
+  .hero__subtitle { font-size: 1.5rem; }
+}
+@media (min-width: 768px) {
+  .hero__title { font-size: 6rem; }
+}
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+.main {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+@media (min-width: 640px) {
+  .main { padding: 7rem 1.5rem; }
+}
+
+.section {
+  margin-bottom: 5rem;
+  scroll-margin-top: 5rem;
+}
+.section__head {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+.section__num {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+}
+.section__rule {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border);
+}
+.section__title {
+  margin-bottom: 2rem;
+  font-size: 2.25rem;
+  line-height: 1.15;
+  color: var(--foreground);
+}
+@media (min-width: 640px) {
+  .section__title { font-size: 3rem; }
+}
+
+.section__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: oklch(0.22 0.04 40 / 0.85);
+}
+
+/* List with accent border */
+.list-accent {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-left: 2px solid var(--accent);
+  padding-left: 1.5rem;
+}
+
+/* Conselheiro grid */
+.conselheiro {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .conselheiro { grid-template-columns: 1fr 1.5fr; }
+}
+.conselheiro__figure {
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 10px 40px -10px oklch(0.22 0.04 40 / 0.3);
+  margin: 0;
+}
+.conselheiro__figure img { width: 100%; height: 100%; object-fit: cover; }
+.conselheiro__caption {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.conselheiro__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: oklch(0.22 0.04 40 / 0.85);
+}
+
+/* Quote */
+.quote {
+  border-left: 4px solid var(--accent);
+  background-color: oklch(0.9 0.04 75 / 0.5);
+  padding: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--secondary-foreground);
+}
+.quote--lg {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+.quote__author {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-style: normal;
+  color: var(--muted-foreground);
+}
+
+/* Expedições */
+.expeditions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.expedition {
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px -4px oklch(0.22 0.04 40 / 0.15);
+}
+.expedition--final {
+  border-color: oklch(0.5 0.2 30 / 0.4);
+  background-color: oklch(0.5 0.2 30 / 0.05);
+}
+.expedition__head {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+.expedition__num {
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+.expedition__date {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted-foreground);
+}
+.expedition__text { color: oklch(0.22 0.04 40 / 0.85); }
+
+.lead-spacer { margin-bottom: 2rem; }
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.timeline li {
+  display: flex;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+.timeline__date {
+  width: 8rem;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+.timeline__event { color: oklch(0.22 0.04 40 / 0.9); }
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  background-color: oklch(0.9 0.04 75 / 0.4);
+  padding: 2.5rem 0;
+}
+.footer__inner {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+.footer__inner p + p {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+}
+
+/* ===== Quiz ===== */
+.quiz__list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  gap: 1.25rem;
+}
+.quiz__item {
+  background: color-mix(in oklab, var(--card) 92%, transparent);
+  border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.quiz__q {
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 1rem;
+  color: var(--foreground);
+}
+.quiz__opts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+.quiz__opts li {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: color-mix(in oklab, var(--foreground) 85%, transparent);
+  padding-left: 0.25rem;
+}
+.quiz__opts strong {
+  display: inline-block;
+  min-width: 1.5rem;
+  color: var(--primary, var(--foreground));
+  font-weight: 700;
+}
+.quiz__answer {
+  margin-top: 0.75rem;
+  border-top: 1px dashed color-mix(in oklab, var(--foreground) 18%, transparent);
+  padding-top: 0.75rem;
+}
+.quiz__answer > summary {
+  cursor: pointer;
+  font-family: var(--font-sans, "Inter", sans-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--primary, var(--foreground));
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+.quiz__answer > summary::-webkit-details-marker { display: none; }
+.quiz__answer > summary::before {
+  content: "▸";
+  display: inline-block;
+  transition: transform 0.2s ease;
+  font-size: 0.7rem;
+}
+.quiz__answer[open] > summary::before { transform: rotate(90deg); }
+.quiz__answer > summary:hover { text-decoration: underline; }
+.quiz__answer p {
+  margin: 0.75rem 0 0;
+  padding: 0.9rem 1rem;
+  background: color-mix(in oklab, var(--primary, var(--foreground)) 8%, transparent);
+  border-left: 3px solid var(--primary, var(--foreground));
+  border-radius: 0 4px 4px 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+
+/* Vídeo */
+.video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px oklch(0.22 0.04 40 / 0.25);
+}
+.video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
